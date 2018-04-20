@@ -2,9 +2,10 @@
 <html>
   <head>
     <%= render 'layouts/header' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="background: #fff;">
   	<% if user_signed_in? %>
   		<%= render 'layouts/user' %>
   	<% else %>
