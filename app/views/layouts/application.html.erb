@@ -5,8 +5,12 @@
   </head>
 
   <body>
-  	<%= render 'layouts/nav' %>
-    <%= yield %>
-    <%= render 'layouts/header' %>
+  	<% if user_signed_in? %>
+  		<%= render 'layouts/user' %>
+  	<% else %>
+	  	<%= render 'layouts/nav' %>
+	<% end -%>
+	    <%= yield %>
+	    <%= render 'layouts/header' %>
   </body>
 </html>

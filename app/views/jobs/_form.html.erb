@@ -1,57 +1,61 @@
-<%= form_with(model: job, local: true) do |form| %>
-  <% if job.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+              <%= form_with(model: job, local: true) do |form| %>
+                
+                
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label>Upload Logo</label>
+                    <%= form.file_field :job_img, id: :job_img, :class => 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <label>Job Title</label>
+                    <%= form.text_field :title, id: :job_title, :class => 'form-control', :placeholder => 'Technical Consultant', :style => "text-transform: capitalize" %>
+                  </div>
+                  <div class="form-group">
+                    <label>Job Description</label>
+                    <%= form.text_area :description, id: :job_description, :class => 'form-control', :row => '6', :placeholder => 'PHP and/or Java. Architect features with the development team. Krossover is looking for a Web Application Developer to join our team of smart developers' %>
+                  </div>
 
-      <ul>
-      <% job.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+                  <div class="form-group">
+                    <label>Location</label>
+                    <%= form.text_field :location, id: :job_location, :class => 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :job_title %>
-  </div>
+                  <div class="form-group">
+                    <label>Job Benefits</label>
+                    <%= form.text_area :job_benefits, id: :job_job_benefits, :class => 'form-control', :row => '6', :placeholder => '404 Health Plan' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :job_description %>
-  </div>
+                   <div class="form-group">
+                    <label>Responsibilities</label>
+                    <%= form.text_area :job_task, id: :job_job_task, :class => 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location, id: :job_location %>
-  </div>
+                   <div class="form-group">
+                    <label>Application Link</label>
+                    <%= form.text_field :job_link, id: :job_job_link, :class => 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :job_benefits %>
-    <%= form.text_area :job_benefits, id: :job_job_benefits %>
-  </div>
+                  <div class="form-group">
+                    <label>Job Salary</label>
+                    <%= form.text_field :job_salary, id: :job_job_salary, :class => 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :job_task %>
-    <%= form.text_area :job_task, id: :job_job_task %>
-  </div>
+                  <div class="form-group">
+                    <label>Job Type</label>
+                    <%= form.text_field :job_type, id: :job_job_type, :class => 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :job_link %>
-    <%= form.text_field :job_link, id: :job_job_link %>
-  </div>
-
-  <div class="field">
-    <%= form.label :job_salary %>
-    <%= form.text_field :job_salary, id: :job_job_salary %>
-  </div>
-
-  <div class="field">
-    <%= form.label :job_type %>
-    <%= form.text_field :job_type, id: :job_job_type %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+                  <div class="checkbox flat-checkbox">
+                    <label>
+                      <input type="checkbox"> 
+                      <span class="fa fa-check"></span>
+                      Send a copy to my email address?
+                    </label>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <%= link_to 'Back', jobs_path, :class => 'btn btn-default btn-theme' %>
+                  <%= form.submit 'Submit', :class => 'btn btn-success btn-theme' %>
+                </div>
+              <% end %>

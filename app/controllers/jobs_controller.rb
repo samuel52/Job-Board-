@@ -4,7 +4,7 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = Job.all.paginate(:page => params[:page], :per_page => 2)
   end
 
   # GET /jobs/1
@@ -54,7 +54,11 @@ class JobsController < ApplicationController
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
+    @job.destroy = Job.find(params[:id])
     @job.destroy
+ 
+    redirect_to articles_path
+
     respond_to do |format|
       format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
       format.json { head :no_content }
@@ -69,6 +73,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:title, :description, :location, :job_benefits, :job_task, :job_link, :job_salary, :job_type)
+      params.require(:job).permit(:job_img, :title, :description, :location, :job_benefits, :job_task, :job_link, :job_salary, :job_type)
     end
 end
