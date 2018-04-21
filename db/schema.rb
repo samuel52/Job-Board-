@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20180420153241) do
     t.string "job_img_content_type"
     t.integer "job_img_file_size"
     t.datetime "job_img_updated_at"
+    t.index ["slug"], name: "index_jobs_on_slug"
   end
 
   create_table "users", force: :cascade do |t|
