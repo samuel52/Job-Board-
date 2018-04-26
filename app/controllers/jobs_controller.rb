@@ -1,10 +1,11 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :except => [:show, :index]
 
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all.paginate(:page => params[:page], :per_page => 2).search(params[:search])
+    @jobs = Job.all.paginate(:page => params[:page], :per_page => 3).search(params[:search])
   end
 
   # GET /jobs/1
@@ -14,7 +15,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = Job.new
+    @job = current_user.jobs.build
   end
 
   # GET /jobs/1/edit
@@ -24,7 +25,7 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
-    @job = Job.new(job_params)
+    @job = current_user.jobs.build(job_params)
 
     respond_to do |format|
       if @job.save

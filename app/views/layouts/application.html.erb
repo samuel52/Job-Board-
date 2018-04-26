@@ -8,10 +8,12 @@
   <body style="background: #fff;">
   	<% if user_signed_in? %>
   		<%= render 'layouts/user' %>
-  	<% else %>
-	  	<%= render 'layouts/nav' %>
+      <% else %>
+      <%= render 'layouts/nav' %>
 	<% end -%>
+  <% flash.each do |key, value| %>
+        <div class="alert alert-success" role="alert" style="padding: initial!important; font-family: roboto;"><%= value %></div>
+      <% end %>
 	    <%= yield %>
-	    <%= render 'layouts/header' %>
   </body>
 </html>

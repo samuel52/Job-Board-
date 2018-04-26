@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :jobs
-  get 'home/index'
+	  resources :people
+	  devise_for :users
 
-  root 'jobs#index'
+	resources :jobs do
+	  	resources :summaries
+	end
+
+	  get 'home/index'
+
+	  root 'jobs#index'
+
+	 devise_scope :user do
+	  get 'login', to: 'devise/sessions#new'
+	  get 'signup', to: 'devise/registrations#new'
+	  delete 'logout', to: 'devise/sessions#destroy'
+	end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

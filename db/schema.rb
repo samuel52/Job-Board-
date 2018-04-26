@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420153241) do
+ActiveRecord::Schema.define(version: 20180426210612) do
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -40,6 +46,35 @@ ActiveRecord::Schema.define(version: 20180420153241) do
     t.string "job_img_content_type"
     t.integer "job_img_file_size"
     t.datetime "job_img_updated_at"
+    t.integer "country_id"
+    t.string "company"
+    t.string "job_level"
+    t.string "specialize"
+    t.text "about"
+    t.string "qualification"
+    t.integer "experience"
+    t.date "expiry"
+    t.integer "user_id"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "login"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "summaries", force: :cascade do |t|
+    t.string "company"
+    t.string "job_level"
+    t.string "specialize"
+    t.text "about"
+    t.string "qualification"
+    t.string "experience"
+    t.date "expiry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
