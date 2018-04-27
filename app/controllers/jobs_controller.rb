@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all.paginate(:page => params[:page], :per_page => 3).search(params[:search])
+    @jobs = Job.all.paginate(:page => params[:page], :per_page => 7).search(params[:search])
   end
 
   # GET /jobs/1
