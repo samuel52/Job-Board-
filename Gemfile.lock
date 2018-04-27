@@ -79,6 +79,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gravtastic (3.2.6)
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -217,6 +218,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   friendly_id
+  gravtastic (~> 3.2, >= 3.2.6)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   paperclip

@@ -1,11 +1,9 @@
 <nav class="navbar navbar-default main-navbar hidden-sm hidden-xs">
           <div class="container">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <a  href="/"><img style="padding: 6px;" class="navbar-brand" src="https://res.cloudinary.com/dko7n7x16/image/upload/v1524770564/LogoMakr_4hyY2t_iguecr.png"></a>
 
-              <ul class="nav navbar-nav">
-                <li class=""><a href="job_list.html"><strong>Post a Job</strong></a></li>
-                
-              </ul>      
+                   
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                   <a href="#" class="link-profile">
@@ -13,8 +11,7 @@
                   </a>
                   
                 </li>
-                <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-                <li class="link-btn"><a href="index.html"><span class="btn btn-theme  btn-pill btn-xs btn-line">Logout</span></a></li>
+                <li class="link-btn"><a btn-pill" rel="nofollow" data-method="delete" href="/logout" ><span class="btn btn-theme  btn-pill btn-xs btn-line">Logout</span></a></li>
               </ul>
             </div>
           </div>
