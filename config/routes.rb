@@ -2,11 +2,8 @@ Rails.application.routes.draw do
 	  resources :people
 	  devise_for :users
 
-	resources :jobs do
-	  	resources :summaries
-	end
+	resources :jobs
 
-	  get 'home/index'
 
 	  root 'jobs#index'
 

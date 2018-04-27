@@ -47,38 +47,10 @@ ActiveRecord::Schema.define(version: 20180426210612) do
     t.integer "job_img_file_size"
     t.datetime "job_img_updated_at"
     t.integer "country_id"
-    t.string "company"
-    t.string "job_level"
-    t.string "specialize"
-    t.text "about"
-    t.string "qualification"
-    t.integer "experience"
-    t.date "expiry"
     t.integer "user_id"
     t.index ["slug"], name: "index_jobs_on_slug"
   end
 
-  create_table "people", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "login"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "summaries", force: :cascade do |t|
-    t.string "company"
-    t.string "job_level"
-    t.string "specialize"
-    t.text "about"
-    t.string "qualification"
-    t.string "experience"
-    t.date "expiry"
-    t.integer "job_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["job_id"], name: "index_summaries_on_job_id"
-  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
